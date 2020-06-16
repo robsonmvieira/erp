@@ -21,6 +21,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -45,12 +46,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-h1, h2, h3, h4, h5, h6 {
+body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Ubuntu', sans-serif;
+	font-weight: 700;
 }
 input, button, a {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
+	font-size: 1em;
 }
 `
 // font-family: 'Roboto', sans-serif;
