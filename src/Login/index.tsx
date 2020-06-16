@@ -1,7 +1,9 @@
 import React from 'react'
 
+import {FiMail, FiLock} from 'react-icons/fi';
 import { Container, Content, Form, SideImage } from './styles'
 import Input from '../components/Input'
+import Button from '../components/Button'
 
 const Login: React.FC = () => {
   return (
@@ -9,10 +11,15 @@ const Login: React.FC = () => {
       <Container>
         <Content>
           <Form>
-            <Input />
+            <h1>
+              Login
+            </h1>
+            <Input icon={FiMail} name='email' placeholder='e-mail'/>
+            <Input icon={FiLock} name='password' placeholder='Password'/>
+            <Button>Login</Button>
           </Form>
-        </Content>
         <SideImage />
+        </Content>
       </Container>
     </>
   )
