@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import BgLogin from '../assets/images/login-bg.jpg'
+import BgLogin from '../../assets/images/login-bg.jpg'
 
 export const Container = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ export const Content = styled.div`
   align-items: stretch;
 
 `
-export const Form = styled.div`
+export const FormContainer = styled.div`
   width: 100%;
   max-width: 700px;
 
