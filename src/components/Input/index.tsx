@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {InputHTMLAttributes} from 'react'
 
 import { Container } from './styles'
+import { IconBaseProps } from 'react-icons/lib/cjs'
 
-const Input: React.FC = () => {
+interface InputForm extends InputHTMLAttributes<HTMLInputElement> {
+  icon?: React.ComponentType<IconBaseProps>
+  name: string
+}
+
+const Input: React.FC<InputForm> = ({icon: Icon, ...rest}) => {
   return (
     <Container>
-      <input placeholder="Login" />
+      {Icon &&  <Icon size={20}/>}
+      <input {...rest}/>
     </Container>
   )
 }
