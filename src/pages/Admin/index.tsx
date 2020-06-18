@@ -11,3 +11,4 @@ const Admin: React.FC = () => {
 }
 
 export default Admin;
+// https://www.graphicpear.com/wp-content/uploads/2017/09/shot_pehia_100_.png

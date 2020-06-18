@@ -1,4 +1,5 @@
-import React, {useCallback, useRef} from 'react'
+import React, {useCallback, useRef, useContext} from 'react'
+
 import {FormHandles} from '@unform/core';
 import {FiMail, FiLock} from 'react-icons/fi';
 import { Container, Content, FormContainer, SideImage } from './styles'
@@ -8,10 +9,18 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import {Form} from '@unform/web';
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import {AuthContext} from '../../context/AuthContext';
+
+interface LoginData {
+  email: string;
+  password: string;
+}
 
 const Login: React.FC = () => {
+  const {login} = useContext(AuthContext)
+ 
   const formRef = useRef<FormHandles>(null)
-  const handleSubmit = useCallback(async (data: object) => {
+  const handleSubmit = useCallback(async (data: LoginData) => {
     try {
       const schema = Yup.object().shape({
         password: Yup.string().min(6, 'A senha deve conter no mínimo 6 caracteres'),
@@ -20,12 +29,13 @@ const Login: React.FC = () => {
       await schema.validate(data, {
         abortEarly: false
       })
-  
+      login({email: data.email, password: data.password})
+     
     } catch (errors) {
       const erros = getValidationErrors(errors)
       formRef.current?.setErrors(erros)
     }
-  }, [])
+  }, [login])
   return (
     <>
       <Container>
