@@ -1,7 +1,7 @@
 import React from 'react'
 import GlobalStyle from './css/styles'
 import {BrowserRouter} from 'react-router-dom';
-import {Authprovider} from './context/AuthContext';
+import {Authprovider} from './context/auth/Provider';
 import Routes from './routes';
 
 const App: React.FC = () => {

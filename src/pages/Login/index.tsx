@@ -9,7 +9,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import {Form} from '@unform/web';
 import Input from '../../components/Input'
 import Button from '../../components/Button'
-import {AuthContext} from '../../context/AuthContext';
+import {AuthContext} from '../../context/auth/Provider';
 
 interface LoginData {
   email: string;
@@ -18,7 +18,7 @@ interface LoginData {
 
 const Login: React.FC = () => {
   const {login} = useContext(AuthContext)
- 
+
   const formRef = useRef<FormHandles>(null)
   const handleSubmit = useCallback(async (data: LoginData) => {
     try {
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
         abortEarly: false
       })
       login({email: data.email, password: data.password})
-     
+
     } catch (errors) {
       const erros = getValidationErrors(errors)
       formRef.current?.setErrors(erros)
