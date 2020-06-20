@@ -1,32 +1,30 @@
-import React, {InputHTMLAttributes, useRef, useEffect} from 'react'
+import React, { InputHTMLAttributes, useRef, useEffect } from 'react'
 
-import { Container } from './styles'
 import { IconBaseProps } from 'react-icons/lib/cjs'
 
-import {useField} from '@unform/core';
+import { useField } from '@unform/core'
+import { Container } from './styles'
 
 interface InputForm extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ComponentType<IconBaseProps>
   name: string
 }
 
-const Input: React.FC<InputForm> = ({name, icon: Icon, ...rest}) => {
-const inputRef = useRef(null)
-const { defaultValue, fieldName, error, registerField } = useField(name);
+const Input: React.FC<InputForm> = ({ name, icon: Icon, ...rest }) => {
+  const inputRef = useRef(null)
+  const { defaultValue, fieldName, error, registerField } = useField(name)
 
-useEffect(() => {
-  registerField({
-    name: fieldName,
-    ref: inputRef.current,
-    path: 'value'
-  })
-
-}, [fieldName, registerField])
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value'
+    })
+  }, [fieldName, registerField])
   return (
     <Container>
-      {Icon &&  <Icon size={20}/>}
-      <input defaultValue={defaultValue} ref={inputRef} {...rest}/>
-     {error}
+      {Icon && <Icon size={20} />}
+      <input defaultValue={defaultValue} ref={inputRef} {...rest} />
     </Container>
   )
 }
