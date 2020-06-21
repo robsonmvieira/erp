@@ -55,6 +55,10 @@ input, button, a {
   font-family: 'Roboto', sans-serif;
 	font-size: 1em;
 }
+
+a {
+  text-decoration: none
+}
 `
 // font-family: 'Roboto', sans-serif;
 
