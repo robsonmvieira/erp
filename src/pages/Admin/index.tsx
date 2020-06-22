@@ -1,13 +1,23 @@
 import React from 'react'
 
-import { FiPenTool, FiPhone, FiList, FiUsers } from 'react-icons/fi'
+import {
+  FiPenTool,
+  FiPhone,
+  FiList,
+  FiUsers,
+  FiSearch,
+  FiBookOpen,
+  FiBarChart
+} from 'react-icons/fi'
 import {
   Container,
   Content,
   SideLeft,
   Main,
   SideRight,
-  SideLeftMenuList
+  SideLeftMenuList,
+  EmployeeMenu,
+  EmployeeContainer
 } from './styles'
 
 // interface LiProps extends LiHTMLAttributes<HTMLLIElement> {
@@ -42,7 +52,28 @@ const Admin: React.FC = () => {
           </SideLeftMenuList>
         </SideLeft>
         <Main>
-          <h1>Main</h1>
+          <div>
+            <div>
+              <FiSearch size={20} />
+              <input type="text" name="search" placeholder="buscar" />
+            </div>
+            <button type="button">Novo Funcionário</button>
+          </div>
+          <EmployeeMenu>
+            <div>
+              <span>Funcionários</span>
+              <select>
+                <option value="volvo">Ordenar Por</option>
+              </select>
+            </div>
+            <div>
+              <FiBookOpen size={20} />
+              <FiBarChart size={20} />
+            </div>
+          </EmployeeMenu>
+          <EmployeeContainer>
+            <h2>Continer</h2>
+          </EmployeeContainer>
         </Main>
         <SideRight>
           <h1>Side Right</h1>
