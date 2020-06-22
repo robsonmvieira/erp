@@ -142,7 +142,56 @@ export const EmployeeMenu = styled.div`
     }
   }
 `
-export const EmployeeContainer = styled.div``
+export const EmployeeContainer = styled.div`
+  display: flex;
+  background: #f4effd;
+  border-radius: 10px;
+  justify-content: stretch;
+  margin-bottom: 10px;
+  .employee__img {
+    width: 120px;
+    height: 130px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 80px;
+      height: 80px;
+      max-width: 100%;
+      border-radius: 50%;
+    }
+  }
+  .employee__info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-left: 0;
+
+    .base__info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      span {
+        color: #414f8c;
+        font-size: 0.8em;
+        margin-bottom: 10px;
+        font-weight: normal;
+        font-family: 'Roboto', sans-serif;
+
+        &:first-child {
+          font-weight: 500;
+        }
+      }
+    }
+
+    .more__info {
+    }
+  }
+`
 export const SideRight = styled.aside`
   width: 250px;
   /* width: 100%;

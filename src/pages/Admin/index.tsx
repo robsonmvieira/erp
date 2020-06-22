@@ -20,6 +20,10 @@ import {
   EmployeeContainer
 } from './styles'
 
+import M1 from '../../assets/images/m1.jpg'
+import M2 from '../../assets/images/m2.jpg'
+import W1 from '../../assets/images/w1.jpg'
+
 // interface LiProps extends LiHTMLAttributes<HTMLLIElement> {
 //   icons?: React.ComponentType<IconBaseProps>
 // }
@@ -72,7 +76,51 @@ const Admin: React.FC = () => {
             </div>
           </EmployeeMenu>
           <EmployeeContainer>
-            <h2>Continer</h2>
+            <div className="employee__img">
+              <img src={M1} alt="employee" />
+            </div>
+            <div className="employee__info">
+              <div className="base__info">
+                <span>Cris Jhonson</span>
+                <span>Operacional - Tecnico de Redes</span>
+              </div>
+
+              <div className="more__info">
+                <button type="button">Mais info</button>
+              </div>
+            </div>
+          </EmployeeContainer>
+
+          <EmployeeContainer>
+            <div className="employee__img">
+              <img src={W1} alt="employee" />
+            </div>
+            <div className="employee__info">
+              <div className="base__info">
+                <span>Mirian Lisboa</span>
+                <span>Recursos Humanos - Diretora Operaciona</span>
+              </div>
+
+              <div className="more__info">
+                <button type="button">Mais info</button>
+              </div>
+            </div>
+          </EmployeeContainer>
+
+          <EmployeeContainer>
+            <div className="employee__img">
+              <img src={M2} alt="employee" />
+            </div>
+            <div className="employee__info">
+              <div className="base__info">
+                <span>Willian Souza</span>
+                <span>Adm - Assistente Adminstrativo</span>
+              </div>
+
+              <div className="more__info">
+                <button type="button">Mais info</button>
+              </div>
+            </div>
           </EmployeeContainer>
         </Main>
         <SideRight>
