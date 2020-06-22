@@ -7,7 +7,8 @@ import {
   FiUsers,
   FiSearch,
   FiBookOpen,
-  FiBarChart
+  FiBarChart,
+  FiBell
 } from 'react-icons/fi'
 import {
   Container,
@@ -23,6 +24,7 @@ import {
 import M1 from '../../assets/images/m1.jpg'
 import M2 from '../../assets/images/m2.jpg'
 import W1 from '../../assets/images/w1.jpg'
+import UserImg from '../../assets/images/user.jpg'
 
 // interface LiProps extends LiHTMLAttributes<HTMLLIElement> {
 //   icons?: React.ComponentType<IconBaseProps>
@@ -65,7 +67,7 @@ const Admin: React.FC = () => {
           </div>
           <EmployeeMenu>
             <div>
-              <span>Funcionários</span>
+              <h2>Funcionários</h2>
               <select>
                 <option value="volvo">Ordenar Por</option>
               </select>
@@ -98,7 +100,7 @@ const Admin: React.FC = () => {
             <div className="employee__info">
               <div className="base__info">
                 <span>Mirian Lisboa</span>
-                <span>Recursos Humanos - Diretora Operaciona</span>
+                <span>Recursos Humanos - Diretora Operacional</span>
               </div>
 
               <div className="more__info">
@@ -124,7 +126,11 @@ const Admin: React.FC = () => {
           </EmployeeContainer>
         </Main>
         <SideRight>
-          <h1>Side Right</h1>
+          <div className="user__menu">
+            <FiBell size={16} />
+            <img src={UserImg} alt="employee avatar" srcSet="" />
+          </div>
+          <h2>Próximas Ordens de Serviços</h2>
         </SideRight>
       </Content>
     </Container>

@@ -108,7 +108,7 @@ export const EmployeeMenu = styled.div`
   margin-top: 30px;
 
   > div {
-    span {
+    h2 {
       color: #414f8c;
       /* margin: 40px 0; */
       margin-right: 20px;
@@ -144,10 +144,10 @@ export const EmployeeMenu = styled.div`
 `
 export const EmployeeContainer = styled.div`
   display: flex;
-  background: #f4effd;
   border-radius: 10px;
-  justify-content: stretch;
+  background: #f4effd;
   margin-bottom: 10px;
+  justify-content: stretch;
   .employee__img {
     width: 120px;
     height: 130px;
@@ -193,7 +193,37 @@ export const EmployeeContainer = styled.div`
   }
 `
 export const SideRight = styled.aside`
-  width: 250px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h2 {
+    padding-left: 30px;
+    color: #414f8c;
+    margin: 50px 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+  .user__menu {
+    width: 350px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    svg {
+      color: #414f8c;
+    }
+    img {
+      width: 25px;
+      height: 25px;
+      max-width: 100%;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+  }
   /* width: 100%;
   height: 100vh; */
 `
