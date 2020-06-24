@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, { useCallback } from 'react'
+import { useHistory, Link } from 'react-router-dom'
 import {
   FiPenTool,
   FiPhone,
@@ -28,11 +28,14 @@ import M2 from '../../assets/images/m2.jpg'
 import W1 from '../../assets/images/w1.jpg'
 import UserImg from '../../assets/images/user.jpg'
 import CardImg from '../../assets/images/card-img.jpg'
-// interface LiProps extends LiHTMLAttributes<HTMLLIElement> {
-//   icons?: React.ComponentType<IconBaseProps>
-// }
 
 const Admin: React.FC = () => {
+  const history = useHistory()
+
+  const goToNewEmployeer = useCallback(() => {
+    history.push('/novo-funcionario')
+  }, [history])
+
   return (
     <Container>
       <Content>
@@ -65,7 +68,9 @@ const Admin: React.FC = () => {
               <FiSearch size={20} />
               <input type="text" name="search" placeholder="buscar" />
             </div>
-            <button type="button">Novo Funcionário</button>
+            <button type="button" onClick={goToNewEmployeer}>
+              Novo Funcionário
+            </button>
           </div>
           <EmployeeMenu>
             <div>
