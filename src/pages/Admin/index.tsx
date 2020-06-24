@@ -8,7 +8,8 @@ import {
   FiSearch,
   FiBookOpen,
   FiBarChart,
-  FiBell
+  FiBell,
+  FiTarget
 } from 'react-icons/fi'
 import {
   Container,
@@ -18,14 +19,15 @@ import {
   SideRight,
   SideLeftMenuList,
   EmployeeMenu,
-  EmployeeContainer
+  EmployeeContainer,
+  NextOrderCard
 } from './styles'
 
 import M1 from '../../assets/images/m1.jpg'
 import M2 from '../../assets/images/m2.jpg'
 import W1 from '../../assets/images/w1.jpg'
 import UserImg from '../../assets/images/user.jpg'
-
+import CardImg from '../../assets/images/card-img.jpg'
 // interface LiProps extends LiHTMLAttributes<HTMLLIElement> {
 //   icons?: React.ComponentType<IconBaseProps>
 // }
@@ -131,6 +133,46 @@ const Admin: React.FC = () => {
             <img src={UserImg} alt="employee avatar" srcSet="" />
           </div>
           <h2>Próximas Ordens de Serviços</h2>
+          <NextOrderCard>
+            <img src={CardImg} alt="" />
+            <div className="card__info">
+              <strong>Rafael Oliveira</strong>
+              <div className="card__locale">
+                <FiTarget size={12} />
+                <span>Tijuca, RJ</span>
+              </div>
+            </div>
+          </NextOrderCard>
+          <NextOrderCard>
+            <img src={CardImg} alt="" />
+            <div className="card__info">
+              <strong>Rafael Oliveira</strong>
+              <div className="card__locale">
+                <FiTarget size={12} />
+                <span>Tijuca, RJ</span>
+              </div>
+            </div>
+          </NextOrderCard>
+          <NextOrderCard>
+            <img src={CardImg} alt="" />
+            <div className="card__info">
+              <strong>Rafael Oliveira</strong>
+              <div className="card__locale">
+                <FiTarget size={12} />
+                <span>Tijuca, RJ</span>
+              </div>
+            </div>
+          </NextOrderCard>
+          <NextOrderCard>
+            <img src={CardImg} alt="" />
+            <div className="card__info">
+              <strong>Rafael Oliveira</strong>
+              <div className="card__locale">
+                <FiTarget size={12} />
+                <span>Tijuca, RJ</span>
+              </div>
+            </div>
+          </NextOrderCard>
         </SideRight>
       </Content>
     </Container>

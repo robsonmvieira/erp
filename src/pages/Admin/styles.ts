@@ -148,6 +148,7 @@ export const EmployeeContainer = styled.div`
   background: #f4effd;
   margin-bottom: 10px;
   justify-content: stretch;
+
   .employee__img {
     width: 120px;
     height: 130px;
@@ -189,6 +190,10 @@ export const EmployeeContainer = styled.div`
     }
 
     .more__info {
+      button {
+        background: #3d85ff;
+        font-weight: 500;
+      }
     }
   }
 `
@@ -226,4 +231,49 @@ export const SideRight = styled.aside`
   }
   /* width: 100%;
   height: 100vh; */
+`
+export const NextOrderCard = styled.div`
+  width: 90%;
+  margin-left: 30px;
+  height: 80px;
+  display: flex;
+  border-radius: 10px;
+  background: #f4effd;
+  margin-bottom: 10px;
+  align-items: center;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 30px;
+  }
+
+  & .card__info {
+    strong {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: #414f8c;
+      font-size: 1em;
+
+      display: flex;
+      flex-direction: column;
+    }
+    & .card__locale {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      svg {
+        color: #414f8c;
+        margin-right: 5px;
+      }
+
+      span {
+        color: #414f8c;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.6em;
+        font-weight: normal;
+      }
+    }
+  }
 `
