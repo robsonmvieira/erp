@@ -8,9 +8,10 @@ import { Container } from './styles'
 interface InputForm extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ComponentType<IconBaseProps>
   name: string
+  format?: 'small' | 'medium' | 'big'
 }
 
-const Input: React.FC<InputForm> = ({ name, icon: Icon, ...rest }) => {
+const Input: React.FC<InputForm> = ({ name, icon: Icon, format, ...rest }) => {
   const inputRef = useRef(null)
   const { defaultValue, fieldName, error, registerField } = useField(name)
 
@@ -22,7 +23,7 @@ const Input: React.FC<InputForm> = ({ name, icon: Icon, ...rest }) => {
     })
   }, [fieldName, registerField])
   return (
-    <Container>
+    <Container format={format}>
       {Icon && <Icon size={20} />}
       <input defaultValue={defaultValue} ref={inputRef} {...rest} />
     </Container>
