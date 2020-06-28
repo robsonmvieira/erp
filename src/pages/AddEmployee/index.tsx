@@ -1,21 +1,38 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
-import { Form, FormHandles } from '@unform/core'
+import { FormHandles } from '@unform/core'
+import { useDropzone } from 'react-dropzone'
 import { Container, Content, MyForm } from './styles'
 import Input from '../../components/Input'
 
 const AddEmployee: React.FC = () => {
+  const [imageUpload, setImageUpload] = useState<File>()
   const formRef = useRef<FormHandles>(null)
 
   const handlSubmitForm = useCallback((data: any) => {
     console.log(data)
   }, [])
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles[0])
+    setImageUpload(acceptedFiles[0])
+  }, [])
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop
+  })
   return (
     <Container>
       <Content>
         <MyForm ref={formRef} onSubmit={handlSubmitForm}>
-          <div className="form-upload">
-            <input name="employee-img" type="file" />
+          <div className="form-upload" {...getRootProps()}>
+            <input name="employee-img" {...getInputProps()} />
+            {imageUpload ? (
+              <p>
+                File:
+                {imageUpload.name}
+              </p>
+            ) : (
+              <p>Drag drop some files here, or click to select files</p>
+            )}
           </div>
 
           <div className="container-inputs">
