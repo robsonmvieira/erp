@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to right, #dbdffc, #f7d4ee);
+  /* background-image: linear-gradient(to right, #dbdffc, #f7d4ee); */
 `
 const fadeIn = keyframes`
   from {
@@ -63,6 +63,7 @@ export const Main = styled.main`
   display: flex;
   flex: 1;
   flex-direction: column;
+  justify-content: flex-start;
 
   div {
     display: flex;
