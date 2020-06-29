@@ -7,8 +7,8 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  height: 100vh;
   padding: 0 20px;
+  margin-top: 40px;
 
   display: flex;
   justify-content: space-between;
@@ -39,8 +39,8 @@ export const Content = styled.div`
 `
 export const BoxItem = styled.div`
   width: 100%;
-  height: 300px;
-  padding: 20px;
+  height: 250px;
+  padding: 0 20px;
   margin-right: 10px;
   cursor: pointer;
   background: #eee;
@@ -52,7 +52,7 @@ export const BoxItem = styled.div`
   /* align-items: center; */
 
   span {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-weight: normal;
     font-size: 1.2em;
     color: #122232;
@@ -64,5 +64,18 @@ export const BoxItem = styled.div`
     text-align: center;
     line-height: 1.4;
     color: #222222;
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100px;
+      height: 100px;
+      max-width: 100%;
+    }
   }
 `
