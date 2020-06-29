@@ -19,10 +19,6 @@ export const Content = styled.div`
   padding: 0 20px;
   margin: 0 auto;
   animation: ${fadeIn} 1s;
-
-  & h1 {
-    margin-bottom: 40px;
-  }
 `
 export const MyForm = styled(Unform)`
   display: flex;
@@ -65,6 +61,12 @@ export const MyForm = styled(Unform)`
     flex-direction: column;
     flex: 1;
     padding-left: 10px;
+
+    & h1 {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      color: #122232;
+    }
 
     & .input-container {
       width: 100%;
