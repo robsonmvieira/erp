@@ -28,6 +28,7 @@ import M2 from '../../assets/images/m2.jpg'
 import W1 from '../../assets/images/w1.jpg'
 import UserImg from '../../assets/images/user.jpg'
 import CardImg from '../../assets/images/card-img.jpg'
+import HumanResources from '../HumanResources'
 
 const Admin: React.FC = () => {
   const history = useHistory()
@@ -84,7 +85,7 @@ const Admin: React.FC = () => {
               <FiBarChart size={20} />
             </div>
           </EmployeeMenu>
-          <EmployeeContainer>
+          {/* <EmployeeContainer>
             <div className="employee__img">
               <img src={M1} alt="employee" />
             </div>
@@ -130,7 +131,8 @@ const Admin: React.FC = () => {
                 <button type="button">Mais info</button>
               </div>
             </div>
-          </EmployeeContainer>
+          </EmployeeContainer> */}
+          <HumanResources />
         </Main>
         <SideRight>
           <div className="user__menu">
