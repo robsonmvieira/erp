@@ -33,12 +33,38 @@ export const MyForm = styled(Unform)`
     width: 600px;
     display: flex;
     align-items: center;
+    background: #26c870;
+
+    .container-img {
+      width: 100%;
+      height: 100vh;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    div {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      color: #fff;
+
+      svg {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   & .container-inputs {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding-left: 10px;
 
     & .input-container {
       width: 100%;
