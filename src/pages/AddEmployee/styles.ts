@@ -72,7 +72,7 @@ export const MyForm = styled(Unform)`
       width: 100%;
       display: flex;
       flex-direction: column;
-
+      margin-right: 10px;
       label {
         font-family: 'Roboto';
         font-size: 0.7em;
@@ -87,8 +87,8 @@ export const MyForm = styled(Unform)`
       display: flex;
       justify-content: flex-start;
 
-      & .input-container:first-of-type {
-        margin-right: 10px;
+      & .input-container:last-of-type {
+        margin-right: 0;
       }
     }
     & button {

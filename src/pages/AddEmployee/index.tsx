@@ -162,7 +162,7 @@ const AddEmployee: React.FC = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="">Data do ASO</label>
-                <Input format="small" name="asoDate" />
+                <Input format="big" name="asoDate" />
               </div>
             </div>
             <div
