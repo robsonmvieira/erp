@@ -123,6 +123,16 @@ const AddEmployee: React.FC = () => {
                 <Input format="big" name="fone" />
               </div>
             </div>
+            <div className="form-group">
+              <div className="input-container">
+                <label htmlFor="">CEP</label>
+                <Input format="big" name="zipCode" />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">numero</label>
+                <Input format="big" name="adressNumber" />
+              </div>
+            </div>
             <div className="input-container">
               <label htmlFor="">Endereço</label>
               <Input format="big" name="address" />
@@ -130,6 +140,54 @@ const AddEmployee: React.FC = () => {
             <div className="input-container">
               <label htmlFor="">Complemento</label>
               <Input format="big" name="complement" />
+            </div>
+            <div className="form-group">
+              <div className="input-container">
+                <label htmlFor="">Salário Inicial</label>
+                <Input format="big" name="initialSalary" />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">Função</label>
+                <Input format="big" name="job" />
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-container">
+                <label htmlFor="">Data de Contratação</label>
+                <Input format="big" name="hiredDate" />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">Data de Efetivação</label>
+                <Input format="big" name="effectiveDate" />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">Data do ASO</label>
+                <Input format="small" name="asoDate" />
+              </div>
+            </div>
+            <div
+              className="input-container"
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center'
+              }}
+            >
+              <label htmlFor="">Veículo Proprio</label>
+              <Input
+                value="proprio"
+                type="radio"
+                format="small"
+                name="hasVehicle"
+              />
+              <label htmlFor="">Veículo Locado</label>
+              <Input
+                checked={false}
+                value="locado"
+                type="radio"
+                format="small"
+                name="hasVehicle"
+              />
             </div>
             <div>
               <button type="submit">Cadastrar</button>
