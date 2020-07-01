@@ -23,9 +23,9 @@ import {
   NextOrderCard
 } from './styles'
 
-import M1 from '../../assets/images/m1.jpg'
-import M2 from '../../assets/images/m2.jpg'
-import W1 from '../../assets/images/w1.jpg'
+// import M1 from '../../assets/images/m1.jpg'
+// import M2 from '../../assets/images/m2.jpg'
+// import W1 from '../../assets/images/w1.jpg'
 import UserImg from '../../assets/images/user.jpg'
 import CardImg from '../../assets/images/card-img.jpg'
 import HumanResources from '../HumanResources'

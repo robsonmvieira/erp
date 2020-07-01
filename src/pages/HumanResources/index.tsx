@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
+import { useHistory } from 'react-router-dom'
 import { Container, Content, BoxItem } from './styles'
 import taksSvg from '../../assets/images/rh/task.svg'
 import desligamentoSvg from '../../assets/images/rh/handshake.svg'
@@ -7,10 +8,14 @@ import AbsenteismoSvg from '../../assets/images/rh/calendar.svg'
 import benefitsSvg from '../../assets/images/rh/benefits.svg'
 
 const HumanResources: React.FC = () => {
+  const history = useHistory()
+  const goToNewEmployeer = useCallback(() => {
+    history.push('/novo-funcionario')
+  }, [history])
   return (
     <Container>
       <Content>
-        <BoxItem className="box-admissao">
+        <BoxItem className="box-admissao" onClick={goToNewEmployeer}>
           <div>
             <img src={taksSvg} alt="hire icon img" />
           </div>
