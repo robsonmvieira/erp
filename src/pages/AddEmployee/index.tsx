@@ -1,23 +1,14 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState, useEffect } from 'react'
 
 import { FormHandles } from '@unform/core'
 import { useDropzone } from 'react-dropzone'
 
 import { FiUpload } from 'react-icons/fi'
+import axios from 'axios'
 import { Container, Content, MyForm } from './styles'
 import Input from '../../components/Input'
+import { Employee, Address } from './interfaces'
 
-interface Employee {
-  userName: string
-  email: string
-  cpf: string
-  pis: string
-  civilId: string
-  ctps: string
-  fone: string
-  address: string
-  complement: string
-}
 const AddEmployee: React.FC = () => {
   const [imageUploadUrl, setImageUploadUrl] = useState('')
   const [selectedFile, setSelectedFile] = useState<File>()
@@ -34,6 +25,25 @@ const AddEmployee: React.FC = () => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop
   })
+
+  const handleZipCodeSubmit = useCallback(async () => {
+    const zipCode = formRef.current?.getFieldValue('zipCode')
+    const clearZip = zipCode.split('-').join('')
+    const url = `https://viacep.com.br/ws/${clearZip}/json/`
+
+    const { data } = await axios.get<Address>(url)
+    console.log(data)
+    // axios.get(url).then((res: Address) => {
+    //   console.log(res)
+    // formRef.current?.setFieldValue('address', data.logradouro)
+    // eslint-disable-next-line no-unused-expressions
+    formRef.current?.setData({
+      address: data.logradouro,
+      neighborhood: data.bairro,
+      city: data.localidade,
+      stateCode: data.uf
+    })
+  }, [])
 
   const handlSubmitForm = useCallback(
     (data: Employee) => {
@@ -64,8 +74,8 @@ const AddEmployee: React.FC = () => {
         newUser.append('image', selectedFile)
       }
 
-      const t = newUser.getAll('image')
-      console.log('t', t)
+      // const t = newUser.getAll('image')
+      // console.log('t', t)
     },
     [selectedFile]
   )
@@ -126,16 +136,34 @@ const AddEmployee: React.FC = () => {
             <div className="form-group">
               <div className="input-container">
                 <label htmlFor="">CEP</label>
-                <Input format="big" name="zipCode" />
+                <Input
+                  onBlur={handleZipCodeSubmit}
+                  format="big"
+                  name="zipCode"
+                />
               </div>
               <div className="input-container">
-                <label htmlFor="">numero</label>
+                <label htmlFor="">Numero</label>
                 <Input format="big" name="adressNumber" />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">UF</label>
+                <Input format="big" name="stateCode" />
               </div>
             </div>
             <div className="input-container">
               <label htmlFor="">Endereço</label>
               <Input format="big" name="address" />
+            </div>
+            <div className="form-group">
+              <div className="input-container">
+                <label htmlFor="">Bairro</label>
+                <Input format="big" name="neighborhood" />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">Cidade</label>
+                <Input format="big" name="city" />
+              </div>
             </div>
             <div className="input-container">
               <label htmlFor="">Complemento</label>
@@ -182,7 +210,6 @@ const AddEmployee: React.FC = () => {
               />
               <label htmlFor="">Veículo Locado</label>
               <Input
-                checked={false}
                 value="locado"
                 type="radio"
                 format="small"

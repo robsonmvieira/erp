@@ -92,6 +92,7 @@ export const MyForm = styled(Unform)`
       }
     }
     & button {
+      margin-top: 20px;
       background: #122232;
       color: #fff;
       border: none;
