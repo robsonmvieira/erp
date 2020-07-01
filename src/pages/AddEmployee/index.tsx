@@ -32,10 +32,7 @@ const AddEmployee: React.FC = () => {
     const url = `https://viacep.com.br/ws/${clearZip}/json/`
 
     const { data } = await axios.get<Address>(url)
-    console.log(data)
-    // axios.get(url).then((res: Address) => {
-    //   console.log(res)
-    // formRef.current?.setFieldValue('address', data.logradouro)
+    // console.log(data)
     // eslint-disable-next-line no-unused-expressions
     formRef.current?.setData({
       address: data.logradouro,
@@ -59,7 +56,17 @@ const AddEmployee: React.FC = () => {
         ctps,
         fone,
         address,
-        complement
+        complement,
+        adressNumber,
+        zipCode,
+        initialSalary,
+        city,
+        neighborhood,
+        stateCode,
+        hiredDate,
+        effectiveDate,
+        asoDate,
+        hasVehicle
       } = data
       newUser.append('name', userName)
       newUser.append('email', email)
@@ -69,6 +76,17 @@ const AddEmployee: React.FC = () => {
       newUser.append('ctps', ctps)
       newUser.append('fone', fone)
       newUser.append('address', address)
+      newUser.append('adressNumber', adressNumber)
+      newUser.append('zipCode', zipCode)
+      newUser.append('initialSalary', initialSalary)
+      newUser.append('city', city)
+      newUser.append('neighborhood', neighborhood)
+      newUser.append('stateCode', stateCode)
+      newUser.append('hiredDate', hiredDate)
+      newUser.append('effectiveDate', effectiveDate)
+      newUser.append('asoDate', asoDate)
+      newUser.append('hasVehicle', hasVehicle)
+
       newUser.append('complement', complement)
       if (selectedFile) {
         newUser.append('image', selectedFile)
@@ -144,11 +162,11 @@ const AddEmployee: React.FC = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="">Numero</label>
-                <Input format="big" name="adressNumber" />
+                <Input disabled format="big" name="adressNumber" />
               </div>
               <div className="input-container">
                 <label htmlFor="">UF</label>
-                <Input format="big" name="stateCode" />
+                <Input disabled format="big" name="stateCode" />
               </div>
             </div>
             <div className="input-container">
@@ -158,11 +176,11 @@ const AddEmployee: React.FC = () => {
             <div className="form-group">
               <div className="input-container">
                 <label htmlFor="">Bairro</label>
-                <Input format="big" name="neighborhood" />
+                <Input disabled format="big" name="neighborhood" />
               </div>
               <div className="input-container">
                 <label htmlFor="">Cidade</label>
-                <Input format="big" name="city" />
+                <Input disabled format="big" name="city" />
               </div>
             </div>
             <div className="input-container">
@@ -208,13 +226,6 @@ const AddEmployee: React.FC = () => {
                 format="small"
                 name="hasVehicle"
               />
-              <label htmlFor="">Veículo Locado</label>
-              <Input
-                value="locado"
-                type="radio"
-                format="small"
-                name="hasVehicle"
-              />
             </div>
             <div>
               <button type="submit">Cadastrar</button>
@@ -227,3 +238,4 @@ const AddEmployee: React.FC = () => {
 }
 
 export default AddEmployee
+// adicionar campo Base Alocada
