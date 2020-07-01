@@ -1,15 +1,19 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
 import { FormHandles } from '@unform/core'
 import { useDropzone } from 'react-dropzone'
 
 import { FiUpload } from 'react-icons/fi'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 import { Container, Content, MyForm } from './styles'
 import Input from '../../components/Input'
 import { Employee, Address } from './interfaces'
+import { useToast } from '../../state/toast/Provider'
 
 const AddEmployee: React.FC = () => {
+  const history = useHistory()
+  const { addToast } = useToast()
   const [imageUploadUrl, setImageUploadUrl] = useState('')
   const [selectedFile, setSelectedFile] = useState<File>()
   const formRef = useRef<FormHandles>(null)
@@ -32,7 +36,6 @@ const AddEmployee: React.FC = () => {
     const url = `https://viacep.com.br/ws/${clearZip}/json/`
 
     const { data } = await axios.get<Address>(url)
-    // console.log(data)
     // eslint-disable-next-line no-unused-expressions
     formRef.current?.setData({
       address: data.logradouro,
@@ -92,6 +95,12 @@ const AddEmployee: React.FC = () => {
         newUser.append('image', selectedFile)
       }
 
+      addToast({
+        type: 'success',
+        title: 'Cadastro',
+        description: 'Funcionário cadastrado com sucesso'
+      })
+      history.push('/admin')
       // const t = newUser.getAll('image')
       // console.log('t', t)
     },
