@@ -47,7 +47,7 @@ const Admin: React.FC = () => {
           <SideLeftMenuList>
             <li>
               <FiPenTool size={16} />
-              <a href="jobs">Equipamentos</a>
+              <Link to="/equipamentos">Equipamentos</Link>
             </li>
             <li>
               <FiPhone size={16} />
