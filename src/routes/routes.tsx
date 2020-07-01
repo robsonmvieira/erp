@@ -5,6 +5,7 @@ import Admin from '../pages/Admin'
 import Dashboard from '../pages/Dashboard'
 import AddEmployee from '../pages/AddEmployee'
 import HumanResources from '../pages/HumanResources'
+import AddEquipament from '../pages/AddEquipament'
 
 const routes: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const routes: React.FC = () => {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/novo-funcionario" component={AddEmployee} />
       <Route path="/recursos-humanos" component={HumanResources} />
+      <Route path="/equipamentos" component={AddEquipament} />
     </Switch>
   )
 }
