@@ -30,19 +30,23 @@ const AddEmployee: React.FC = () => {
     onDrop
   })
 
-  const handleZipCodeSubmit = useCallback(async () => {
+  const handleZipCodeSubmit = useCallback(() => {
     const zipCode = formRef.current?.getFieldValue('zipCode')
     const clearZip = zipCode.split('-').join('')
-    const url = `https://viacep.com.br/ws/${clearZip}/json/`
 
-    const { data } = await axios.get<Address>(url)
-    // eslint-disable-next-line no-unused-expressions
-    formRef.current?.setData({
-      address: data.logradouro,
-      neighborhood: data.bairro,
-      city: data.localidade,
-      stateCode: data.uf
-    })
+    async function getPostalData(): Promise<Address> {
+      const url = `https://viacep.com.br/ws/${clearZip}/json/`
+      const { data } = await axios.get<Address>(url)
+      // eslint-disable-next-line no-unused-expressions
+      formRef.current?.setData({
+        address: data.logradouro,
+        neighborhood: data.bairro,
+        city: data.localidade,
+        stateCode: data.uf
+      })
+      return data
+    }
+    getPostalData()
   }, [])
 
   const handlSubmitForm = useCallback(
